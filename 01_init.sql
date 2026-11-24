@@ -1,0 +1,5 @@
+CREATE TABLE transactions (tx_id BIGSERIAL PRIMARY KEY, user_id INT NOT NULL, amount NUMERIC(10, 2) NOT NULL, status VARCHAR(20) NOT NULL, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+
+INSERT INTO transactions (user_id, amount, status) VALUES (101, 2500.50, 'COMPLETED'), (102, 1200.00, 'PENDING');
+
+EXPLAIN ANALYZE SELECT * FROM transactions WHERE user_id = 101;
